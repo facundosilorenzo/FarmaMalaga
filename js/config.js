@@ -6,8 +6,9 @@
  * Cada día es una lista de tramos ["HH:MM", "HH:MM"]. Lista vacía = cerrado.
  */
 window.FARMA_CONFIG = {
-  tienda: "https://farmamalaga.com/",
-  buscarEnTienda: "https://farmamalaga.com/busqueda?controller=search&s=",
+  tienda: "tienda.html",
+  tiendaActual: "https://farmamalaga.com/",
+  buscarEnTienda: "tienda.html?q=",
   whatsapp: "34630282123",
   whatsappTexto: "Hola, tengo una consulta para el farmacéutico: ",
   email: "info@farmamalaga.com",

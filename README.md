@@ -1,6 +1,6 @@
 # FarmaMálaga · web
 
-Web de **FarmaMálaga**: Farmacia Mata (calle Larios, desde 1894), Farmacia García Carmona (calle Huéscar) y Farmacia Dr. Antonio Romero García (Benalmádena). Muestra las tres farmacias con horario y estado "abierta ahora", los servicios (formulación magistral, homeopatía, herboristería), la línea propia, la historia y el contacto por WhatsApp. La venta sigue en la tienda online actual (farmamalaga.com), a la que enlaza.
+Web de **FarmaMálaga**: Farmacia Mata (calle Larios, desde 1894), Farmacia García Carmona (calle Huéscar) y Farmacia Dr. Antonio Romero García (Benalmádena). Muestra las tres farmacias con horario y estado "abierta ahora", los servicios (formulación magistral, homeopatía, herboristería), la línea propia, la historia y el contacto por WhatsApp. Incluye `tienda.html`, un **prototipo de la tienda nueva** con el mismo diseño: catálogo con 21 productos reales, filtros, buscador, ficha rápida y carrito. El pago no está conectado; para comprar sigue la tienda actual (farmamalaga.com).
 
 Es una web estática (HTML + CSS + JavaScript, sin dependencias ni compilación). Se publica tal cual en GitHub Pages, Netlify, Vercel o cualquier hosting. No usa cookies ni analítica, y las tipografías van alojadas en `assets/fonts`.
 
@@ -18,6 +18,7 @@ y abre http://localhost:8000. (Abriendo `index.html` directamente, el navegador 
 |---|---|
 | Teléfonos, WhatsApp, horarios, enlace a la tienda | `js/config.js` (y el horario escrito en `index.html`) |
 | Textos de servicios, línea propia, historia | `index.html` |
+| Productos y precios del prototipo de tienda | `js/productos.js` (fotos cargadas desde farmamalaga.com) |
 | Aviso legal, privacidad, cookies | `legal.html` |
 | Colores, tipografía, espaciado | `css/styles.css` (tokens al principio) y `DESIGN.md` |
 
