@@ -375,3 +375,86 @@ html { scrollbar-color: var(--cobalt) var(--glaze-deep); accent-color: var(--cob
   .btn:active, .tile-tab:active { transform: none; }
   .js .nav { translate: 0 0 !important; }
 }
+
+/* ===================== Motion ===================== */
+/* Hero entrance: one choreography. Lead = plaque (lands with its tilt), support = heading wipe, then lede/actions/status. */
+.js .hero .plaque--hero { animation: plaque-land 900ms var(--ease-out) both; }
+.js .hero h1 { animation: wipe-in 900ms var(--ease-out) 140ms both; }
+.js .hero__lede { animation: rise-in 700ms var(--ease-out) 320ms both; }
+.js .hero__copy .actions { animation: rise-in 700ms var(--ease-out) 400ms both; }
+.js .hero__copy .status { animation: rise-in 700ms var(--ease-out) 460ms both; }
+.js .plaque--hero .plaque__big { animation: letters-in 1100ms var(--ease-out) 180ms both; }
+.js .plaque--hero .plaque__rule { animation: rule-draw 700ms var(--ease-out) 520ms both; transform-origin: center; }
+@keyframes plaque-land {
+  from { opacity: 0; transform: translateY(32px) rotate(-5deg) scale(0.94); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes wipe-in {
+  from { clip-path: inset(0 100% 0 0); filter: blur(6px); transform: translateX(-8px); }
+  to { clip-path: inset(0 -5% 0 0); filter: none; transform: none; }
+}
+@keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes letters-in { from { letter-spacing: 0.3em; opacity: 0; } to { letter-spacing: 0.04em; opacity: 1; } }
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Plaque follows the pointer like a tile held in the hand; sheen slides across the glaze. */
+.plaque--hero { transform-style: preserve-3d; will-change: transform; }
+.plaque--hero.is-tilting { animation: none !important; }
+.plaque--hero .plaque__field { background-position: var(--sheen-x, 0%) var(--sheen-y, 0%), center, center; background-size: 220% 220%, var(--tile) var(--tile), var(--tile) var(--tile); }
+
+/* Open-now dot breathes, rarely */
+.status[data-state="open"] .status__dot { position: relative; }
+.status[data-state="open"] .status__dot::after {
+  content: ""; position: absolute; inset: -3px; border-radius: 50%;
+  border: 2px solid var(--open); opacity: 0;
+  animation: breathe 4.2s ease-out 2.5s infinite;
+}
+@keyframes breathe { 0% { transform: scale(0.6); opacity: 0.7; } 35% { transform: scale(2.1); opacity: 0; } 100% { opacity: 0; } }
+
+/* Header lifts once the page scrolls */
+.site-header { transition: box-shadow 260ms ease-out, background-color 260ms ease-out; }
+.site-header.is-scrolled { box-shadow: 0 10px 30px -22px rgba(13, 31, 79, 0.55); }
+
+/* Scroll reveals: content is visible without JS; .js hides only until the observer marks it */
+.js [data-reveal]:not(.in-view) { opacity: 0.001; }
+.js .section-head[data-reveal].in-view h2 { animation: wipe-in 820ms var(--ease-out) both; }
+.js .section-head[data-reveal].in-view p { animation: rise-in 700ms var(--ease-out) 160ms both; }
+.js .section-head[data-reveal].in-view .btn { animation: rise-in 700ms var(--ease-out) 240ms both; }
+.js [data-reveal].in-view { opacity: 1; }
+/* timeline tiles turn over one after another, quick at the start, slower at the end */
+.js .timeline[data-reveal] li { backface-visibility: hidden; }
+.js .timeline[data-reveal].in-view li { animation: tile-flip 760ms var(--ease-out) both; }
+.js .timeline[data-reveal].in-view li:nth-child(2) { animation-delay: 90ms; }
+.js .timeline[data-reveal].in-view li:nth-child(3) { animation-delay: 170ms; }
+.js .timeline[data-reveal].in-view li:nth-child(4) { animation-delay: 240ms; }
+.js .timeline[data-reveal].in-view li:nth-child(5) { animation-delay: 300ms; }
+.js .timeline[data-reveal].in-view li:nth-child(6) { animation-delay: 350ms; }
+.timeline { perspective: 1200px; }
+@keyframes tile-flip { from { transform: rotateY(-95deg); opacity: 0; } 60% { opacity: 1; } to { transform: none; opacity: 1; } }
+/* shelf rows slide along the ochre rule */
+.js .shelf[data-reveal].in-view { animation: rule-in 700ms var(--ease-out) both; }
+@keyframes rule-in { from { border-top-color: transparent; } }
+.js .shelf[data-reveal].in-view li { animation: slide-in 620ms var(--ease-out) both; }
+.js .shelf[data-reveal].in-view li:nth-child(2) { animation-delay: 60ms; }
+.js .shelf[data-reveal].in-view li:nth-child(3) { animation-delay: 110ms; }
+.js .shelf[data-reveal].in-view li:nth-child(4) { animation-delay: 150ms; }
+.js .shelf[data-reveal].in-view li:nth-child(5) { animation-delay: 180ms; }
+@keyframes slide-in { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+.shelf a .shelf__name { transition: color 160ms ease-out, transform 240ms var(--ease-out); display: inline-block; }
+@media (hover: hover) { .shelf a:hover .shelf__name { transform: translateX(6px); } }
+/* services rows rise in sequence */
+.js .services[data-reveal].in-view .service { animation: rise-in 700ms var(--ease-out) both; }
+.js .services[data-reveal].in-view .service:nth-child(2) { animation-delay: 90ms; }
+.js .services[data-reveal].in-view .service:nth-child(3) { animation-delay: 160ms; }
+
+/* CTA band: the ochre strip runs in when it arrives */
+.cta { position: relative; overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero .plaque--hero, .js .hero h1, .js .hero__lede, .js .hero__copy .actions, .js .hero__copy .status,
+  .js .plaque--hero .plaque__big, .js .plaque--hero .plaque__rule,
+  .js [data-reveal].in-view, .js [data-reveal].in-view * { animation: fade-only 200ms ease-out both !important; animation-delay: 0ms !important; }
+  @keyframes fade-only { from { opacity: 0; } to { opacity: 1; } }
+  .status[data-state="open"] .status__dot::after { animation: none; }
+  .shelf a:hover .shelf__name { transform: none; }
+}

@@ -138,4 +138,56 @@
     var fromHash = tabs.findIndex(function (t) { return t.getAttribute("href") === location.hash; });
     select(fromHash > -1 ? fromHash : 0);
   }
+
+  /* ---------- Header lifts on scroll ---------- */
+  if (header) {
+    var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 8); };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ---------- Scroll reveals (once) ---------- */
+  var reveals = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window && reveals.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("in-view"); });
+  }
+
+  /* ---------- Hero plaque: held tile that follows the pointer (spring-ish lerp) ---------- */
+  var tile = document.querySelector("[data-tilt]");
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (tile) {
+    var landed = function () { tile.classList.add("is-tilting"); };
+    tile.addEventListener("animationend", function (e) { if (e.target === tile) landed(); });
+    if (reduceMotion) landed();
+  }
+  if (tile && finePointer && !reduceMotion) {
+    var field = tile.querySelector(".plaque__field");
+    var target = { x: 0, y: 0 }, cur = { x: 0, y: 0 }, raf = null;
+    var zone = tile.closest(".hero") || tile;
+    var step = function () {
+      cur.x += (target.x - cur.x) * 0.12;
+      cur.y += (target.y - cur.y) * 0.12;
+      tile.style.transform = "perspective(900px) rotateX(" + (-cur.y * 7).toFixed(2) + "deg) rotateY(" + (cur.x * 9).toFixed(2) + "deg)";
+      field.style.setProperty("--sheen-x", (50 - cur.x * 50).toFixed(1) + "%");
+      field.style.setProperty("--sheen-y", (50 - cur.y * 50).toFixed(1) + "%");
+      if (Math.abs(target.x - cur.x) > 0.001 || Math.abs(target.y - cur.y) > 0.001) raf = requestAnimationFrame(step);
+      else raf = null;
+    };
+    var kick = function () { if (!raf) raf = requestAnimationFrame(step); };
+    zone.addEventListener("pointermove", function (e) {
+      if (!tile.classList.contains("is-tilting")) return;
+      var r = tile.getBoundingClientRect();
+      target.x = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 1.2)));
+      target.y = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 1.2)));
+      kick();
+    });
+    zone.addEventListener("pointerleave", function () { target.x = 0; target.y = 0; kick(); });
+  }
 })();

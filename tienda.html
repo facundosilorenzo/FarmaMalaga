@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda · FarmaMálaga</title>
+  <meta name="description" content="Tienda online de FarmaMálaga: línea propia, solares, dermocosmética y cuidado natural, con consejo de farmacéutico.">
+  <meta name="theme-color" content="#1d3f94">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/young-serif-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tienda.css">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body class="shop-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.5-4.4A8.4 8.4 0 1 1 20.5 11.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16.5 7.5M9.5 7h7.5v7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11.5h-11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.5 1.5H5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a class="skip" href="#catalogo">Saltar al catálogo</a>
+
+  <p class="proto-ribbon">Prototipo de la nueva tienda. Productos, precios y fotos copiados de farmamalaga.com el 10/11/2026; el pago aún no está conectado.</p>
+
+  <header class="site-header">
+    <div class="wrap site-header__row">
+      <a class="brand" href="index.html" aria-label="FarmaMálaga, inicio">
+        <img class="brand__mark" src="assets/favicon.svg" alt="" width="36" height="36">
+        <span class="brand__name">FarmaMálaga</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg><span>Menú</span>
+      </button>
+      <nav id="nav" class="nav" aria-label="Principal">
+        <a href="index.html#farmacias">Farmacias</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="tienda.html" aria-current="page">Tienda</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+      <button class="cart-btn" type="button" data-cart-open aria-label="Abrir el carrito, 0 productos">
+        <svg aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="cart-btn__count" data-cart-count>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="shop-hero" aria-labelledby="tienda-title">
+      <div class="wrap shop-hero__grid">
+        <div class="shop-hero__copy">
+          <h1 id="tienda-title">La rebotica, abierta en casa.</h1>
+          <p>Nuestra línea propia, solares, dermocosmética y cuidado natural, elegidos por los farmacéuticos de calle Larios. ¿Dudas? Te asesoramos por WhatsApp antes de comprar.</p>
+          <form class="search" role="search" data-search>
+            <label class="visually-hidden" for="q">Buscar en la tienda</label>
+            <svg aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="q" name="q" type="search" placeholder="Busca un producto o una marca" autocomplete="off">
+          </form>
+        </div>
+
+        <aside class="promo plaque" aria-label="Oferta MartiDerm">
+          <div class="plaque__field promo__field">
+            <span class="promo__brand">MartiDerm</span>
+            <span class="promo__big">−10 %</span>
+            <span class="plaque__rule"></span>
+            <span class="promo__when">Del 1 al 6 de cada mes</span>
+            <span class="promo__code">Código <strong>MARTIDERM10</strong></span>
+            <button class="btn btn--small btn--cobalt promo__cta" type="button" data-filter-jump="martiderm">Ver MartiDerm</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalogo" aria-labelledby="catalogo-title">
+      <div class="wrap">
+        <h2 id="catalogo-title" class="visually-hidden">Catálogo</h2>
+        <div class="toolbar">
+          <div class="chips" role="radiogroup" aria-label="Filtrar por categoría" data-chips>
+            <span class="chips__ink" aria-hidden="true"></span>
+            <button class="chip" type="button" role="radio" aria-checked="true" data-cat="todo">Todo</button>
+            <button class="chip" type="button" role="radio" aria-checked="false" data-cat="linea">Línea FarmaMálaga</button>
+            <button class="chip" type="button" role="radio" aria-checked="false" data-cat="sol">Sol</button>
+            <button class="chip" type="button" role="radio" aria-checked="false" data-cat="rostro">Rostro</button>
+            <button class="chip" type="button" role="radio" aria-checked="false" data-cat="cuerpo">Cuerpo</button>
+            <button class="chip" type="button" role="radio" aria-checked="false" data-cat="bebe">Bebé</button>
+          </div>
+          <div class="toolbar__meta">
+            <p class="count" aria-live="polite" data-count></p>
+            <label class="sort">
+              <span>Ordenar</span>
+              <select data-sort>
+                <option value="rec">Recomendados</option>
+                <option value="asc">Precio, de menor a mayor</option>
+                <option value="desc">Precio, de mayor a menor</option>
+                <option value="az">Nombre, A–Z</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <ul class="grid" data-grid></ul>
+
+        <div class="empty" data-empty hidden>
+          <p class="empty__title">No encontramos «<span data-empty-q></span>».</p>
+          <p>Prueba con otra palabra o pregúntanos: si no lo tenemos, lo pedimos.</p>
+          <div class="actions">
+            <button class="btn btn--line" type="button" data-clear>Ver todo el catálogo</button>
+            <a class="btn btn--cobalt" data-wa href="https://wa.me/34630282123" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Preguntar por WhatsApp</a>
+          </div>
+        </div>
+
+        <noscript>
+          <p class="empty__title">La tienda necesita JavaScript. Mientras tanto, puedes comprar en <a href="https://farmamalaga.com/">la tienda actual</a>.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="ayuda-title">
+      <div class="wrap cta__grid">
+        <div>
+          <h2 id="ayuda-title">¿No sabes cuál elegir?</h2>
+          <p>Cuéntanos tu tipo de piel o lo que te pasa y un farmacéutico te recomienda. Sin compromiso.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--glaze" data-wa href="https://wa.me/34630282123" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__base">
+      <p>© <span data-year>2026</span> Farmacia Mata · Málaga</p>
+      <p><a href="legal.html">Aviso legal y privacidad</a></p>
+    </div>
+  </footer>
+
+  <!-- Quick view -->
+  <dialog class="quick" data-quick aria-labelledby="quick-name">
+    <div class="quick__inner">
+      <button class="icon-btn quick__close" type="button" data-close aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+      <div class="quick__media"><img data-quick-img alt=""><span class="product__mono" data-quick-mono></span></div>
+      <div class="quick__body">
+        <p class="product__brand" data-quick-brand></p>
+        <h2 id="quick-name" data-quick-name></h2>
+        <p class="quick__fmt" data-quick-fmt></p>
+        <p class="quick__badges" data-quick-badges></p>
+        <p class="quick__price" data-quick-price></p>
+        <div class="quick__buy">
+          <div class="stepper" aria-label="Cantidad">
+            <button type="button" data-step="-1" aria-label="Quitar uno"><svg aria-hidden="true"><use href="#i-minus"/></svg></button>
+            <output data-qty>1</output>
+            <button type="button" data-step="1" aria-label="Añadir uno"><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
+          </div>
+          <button class="btn btn--cobalt add-btn" type="button" data-quick-add><span class="add-btn__label">Añadir al carrito</span><span class="add-btn__done" aria-hidden="true"><svg><use href="#i-check"/></svg>Añadido</span></button>
+        </div>
+        <ul class="quick__notes">
+          <li>¿Dudas sobre cómo usarlo? <a data-wa href="https://wa.me/34630282123" rel="noopener">Pregunta a un farmacéutico</a>.</li>
+        </ul>
+        <a class="text-link" data-quick-url href="https://farmamalaga.com/" rel="noopener">Ver en la tienda actual<svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Cart drawer -->
+  <dialog class="drawer" data-drawer aria-labelledby="drawer-title">
+    <div class="drawer__inner">
+      <header class="drawer__head">
+        <h2 id="drawer-title">Tu carrito</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar el carrito"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+      </header>
+      <ul class="lines" data-lines></ul>
+      <div class="drawer__empty" data-drawer-empty>
+        <p class="empty__title">Tu carrito está vacío.</p>
+        <p>Empieza por la línea FarmaMálaga: protección solar pensada para el sol de aquí.</p>
+        <button class="btn btn--line" type="button" data-filter-jump="linea">Ver la línea FarmaMálaga</button>
+      </div>
+      <footer class="drawer__foot" data-drawer-foot>
+        <div class="total"><span>Total</span><strong data-total>0,00 €</strong></div>
+        <p class="drawer__note">IVA incluido. Los gastos de envío se calculan en el siguiente paso.</p>
+        <button class="btn btn--cobalt btn--block" type="button" data-checkout>Finalizar compra</button>
+        <p class="drawer__proto" data-proto hidden>Esto es un prototipo de diseño: el pago todavía no está conectado. Para comprar hoy, usa <a href="https://farmamalaga.com/" rel="noopener">la tienda actual</a>.</p>
+      </footer>
+    </div>
+  </dialog>
+
+  <div class="toaster" aria-live="polite" data-toaster></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tienda.js"></script>
+</body>
+</html>
